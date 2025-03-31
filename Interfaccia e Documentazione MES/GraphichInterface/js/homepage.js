@@ -61,6 +61,66 @@ function init3D() {
     controls.screenSpacePanning = false;
     controls.minDistance = 5;
     controls.maxDistance = 50;
+/*
+    // --- CARICAMENTO MODELLO 3D con GLTFLoader ---
+    const loader = new GLTFLoader();
+    loadingIndicator.style.display = 'block'; // Mostra indicatore
+    loadingIndicator.textContent = 'Caricamento modello 3D...';
+    canvasContainer.classList.add('loading-model'); // Classe per gestire stile durante caricamento
+
+    loader.load(
+        'model/modern_house.glb', // <-- SOSTITUISCI CON IL TUO PERCORSO REALE!
+        function (gltf) {
+            // Modello caricato con successo
+            const model = gltf.scene;
+            scene.add(model);
+            loadingIndicator.style.display = 'none'; // Nascondi indicatore
+            canvasContainer.classList.remove('loading-model');
+
+            // Abilita ombre per gli oggetti nel modello (opzionale)
+             model.traverse(function (node) {
+                 if (node.isMesh) {
+                     node.castShadow = true;
+                     node.receiveShadow = true;
+                 }
+             });
+
+            // Cerca le mesh delle stanze nel modello e aggiungile a clickableObjects
+            model.traverse((child) => {
+                // Verifica se è una Mesh e se il suo NOME corrisponde a una chiave in houseData
+                if (child.isMesh && houseData[child.name]) {
+                    clickableObjects.push(child);
+                    console.log(`Trovata mesh cliccabile: ${child.name}`);
+                    // Assicurati che il materiale sia standard per hover/selezione (potrebbe servire adattare)
+                    if (!(child.material instanceof THREE.MeshStandardMaterial) && !(child.material instanceof THREE.MeshPhysicalMaterial)) {
+                         console.warn(`Materiale di ${child.name} non è Standard/Physical, effetti hover/select potrebbero non funzionare come previsto.`);
+                         // Potresti voler assegnare un nuovo materiale standard qui se necessario
+                    }
+                    // Opzionale: Rendi i materiali leggermente trasparenti per vedere dentro?
+                    // child.material.transparent = true;
+                    // child.material.opacity = 0.9;
+                }
+            });
+            console.log("Modello caricato e stanze cliccabili identificate.");
+
+        },
+        // Progress (funzione chiamata durante il caricamento)
+        function (xhr) {
+            const percentLoaded = Math.round(xhr.loaded / xhr.total * 100);
+            loadingIndicator.textContent = `Caricamento: ${percentLoaded}%`;
+            console.log(`Modello ${percentLoaded}% caricato`);
+        },
+        // Error (funzione chiamata se il caricamento fallisce)
+        function (error) {
+            console.error('Errore nel caricamento del modello 3D:', error);
+            loadingIndicator.textContent = 'Errore caricamento modello!';
+            loadingIndicator.style.color = 'red';
+            canvasContainer.classList.remove('loading-model');
+            // Potresti voler mostrare i cubi placeholder come fallback qui
+            // createPlaceholderCubes();
+        }
+    );
+    // --- FINE CARICAMENTO MODELLO ---*/
 
     const roomGeometry = new THREE.BoxGeometry(4, 3, 5); // Dimensioni esempio
 
@@ -266,10 +326,9 @@ function highlightSelectedRoom(objectToHighlight) {
          // Potresti voler rimuovere le proprietà originalHex/originalEmissive se non servono più
          // delete selectedObject.material.originalHex;
          // delete selectedObject.material.originalEmissive;
-         //nel caso in futuro mi potesse servire per modificare
     }
 
-    // 2. Evidenzia il nuovo oggetto
+    // 2. Evidenzia il nuovo oggetto (se valido)
     if (objectToHighlight && houseData[objectToHighlight.name]) {
         selectedObject = objectToHighlight;
 
