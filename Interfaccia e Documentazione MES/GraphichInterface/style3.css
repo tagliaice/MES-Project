@@ -1,0 +1,763 @@
+/* ======================================== */
+/* Reset di Base & Stili Globali            */
+/* ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Usiamo gli stili più recenti/eleganti che avevi aggiunto */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.7;
+    background-color: #f8f9fa;
+    color: #495057;
+    padding-top: 100px; /* !!! REGOLA QUESTO VALORE !!! Deve essere uguale o leggermente maggiore dell'altezza effettiva del tuo header */
+
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1.2rem 0;
+    text-align: center;
+    /* margin-bottom: 30px; */ /* Rimuovi o commenta il margine inferiore */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+    /* Proprietà per renderlo fisso */
+    position: fixed; /* Fissa l'header rispetto alla viewport */
+    top: 0;          /* Allinealo alla parte superiore */
+    left: 0;         /* Allinealo a sinistra */
+    width: 100%;     /* Fagli occupare tutta la larghezza */
+    z-index: 1000;   /* Assicura che stia sopra altri elementi (tranne i modal) */
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.2s ease; /* Aggiunta transizione colore link */
+}
+
+a:hover {
+    color: #0056b3; /* Cambia colore invece di sottolineare */
+    text-decoration: none; /* Rimuovi sottolineatura all'hover */
+}
+
+/* Lista base senza stile (verrà specificato dove serve) */
+ul {
+    list-style: none;
+    padding-left: 0; /* Assicura nessun padding di default */
+}
+
+p {
+    margin-bottom: 1em; /* Spazio sotto i paragrafi */
+}
+
+strong { /* Evidenzia testo in grassetto */
+    color: #212529;
+}
+
+em { /* Enfatizza testo in corsivo */
+    color: #0056b3;
+}
+
+/* Intestazione (Header) */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1.2rem 0; /* Leggermente più padding */
+    text-align: center;
+    margin-bottom: 30px; /* Più spazio sotto */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Leggera ombra header */
+}
+
+header h1 {
+    margin-bottom: 0.7rem;
+    font-weight: 600; /* Leggermente meno bold */
+}
+
+header nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Spazio tra link usando gap */
+}
+
+header nav ul li {
+    margin: 0 10px; /* Margine orizzontale ridotto (gap gestisce lo spazio) */
+}
+
+header nav ul li a {
+    color: #fff;
+    padding: 8px 15px; /* Padding leggermente aumentato */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: 500; /* Leggermente più leggero */
+}
+
+header nav ul li a.active,
+header nav ul li a:hover {
+    background-color: #007bff; /* Blu primario per hover/active */
+    color: #ffffff; /* Assicura testo bianco */
+    text-decoration: none;
+}
+
+/* Contenitore Principale (Main) */
+main {
+    max-width: 1100px; /* Larghezza leggermente aumentata */
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+/* Piè di Pagina (Footer) */
+footer {
+    text-align: center;
+    margin-top: 50px; /* Più spazio sopra */
+    padding: 25px 0;
+    background-color: #e9ecef; /* Grigio più chiaro */
+    color: #6c757d; /* Grigio più scuro per testo */
+    font-size: 0.9em;
+    border-top: 1px solid #dee2e6; /* Bordo sottile sopra */
+}
+
+/* Stile base delle Sezioni */
+section {
+    background-color: #ffffff;
+    padding: 25px 30px;
+    margin-bottom: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Ombra più morbida */
+    border: 1px solid #e9ecef; /* Bordo sottile */
+}
+
+/* Stile base Titoli di Sezione */
+section h2 {
+    /* Usiamo gli stili più recenti/eleganti */
+    color: #0056b3;
+    margin-bottom: 20px; /* Più spazio sotto H2 */
+    padding-bottom: 10px;
+    border-bottom: 3px solid #007bff;
+    display: inline-block;
+    font-size: 1.8em; /* Leggermente più grande */
+    font-weight: 600;
+}
+
+section h3 {
+    /* Usiamo gli stili più recenti/eleganti */
+    color: #343a40;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-size: 1.4em; /* Leggermente più grande */
+    font-weight: 600;
+}
+
+/* Stile per Sezioni di Contenuto (come About Us) */
+.content-section {
+    max-width: 850px; /* Definito una sola volta */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* ======================================== */
+/* Stili Specifici HOMEPAGE                 */
+/* ======================================== */
+
+/* Contenitore Canvas 3D */
+#canvas-container {
+    width: 100%;
+    height: 65vh;
+    background-color: #e9ecef; /* Grigio chiaro coordinato */
+    position: relative;
+    border-radius: 5px;
+    overflow: hidden;
+    cursor: grab;
+    border: 1px solid #dee2e6; /* Bordo coordinato */
+}
+#canvas-container:active {
+    cursor: grabbing;
+}
+
+#loading-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2em;
+    color: #6c757d; /* Grigio testo coordinato */
+}
+
+/* Dettaglio Stanza Homepage */
+#details-section {
+    background: none;
+    box-shadow: none;
+    padding: 0;
+    border: none; /* Rimuovi bordo/stile di section base */
+    margin-bottom: 0; /* Rimuovi margine se non serve */
+}
+
+#room-details {
+    background-color: #ffffff;
+    /* border: 1px solid #dee2e6; */ /* Commenta o rimuovi il bordo grigio precedente */
+    border-top: 4px solid #007bff; /* Aggiungi un bordo blu più spesso in alto */
+    border-radius: 8px;
+    padding: 25px;
+    margin-top: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15); /* Ombra leggermente più pronunciata */
+    opacity: 1;
+    transform: translateY(0);
+    /* Aggiungiamo il bordo alla transizione per un effetto più fluido */
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out, visibility 0.4s linear, border-top-color 0.4s ease-out;
+    overflow: hidden;
+    visibility: visible;
+}
+
+#room-details.hidden {
+    opacity: 0;
+    transform: translateY(-15px);
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+    /* Nascondi il bordo quando è nascosto */
+    border-top-color: transparent;
+    visibility: hidden;
+}
+
+#room-details h3 { /* Stile specifico per H3 dentro room-details */
+    text-align: center;
+    margin-top: 0; /* Rimuovi margine sopra se è il primo elemento */
+    margin-bottom: 25px; /* Più spazio sotto */
+    color: #0056b3;
+    font-size: 1.5em; /* Dimensione specifica */
+}
+
+#room-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px; /* Più spazio tra piantina e controlli */
+}
+
+#room-floorplan, #room-controls {
+    flex: 1;
+    min-width: 280px;
+}
+
+#room-floorplan h4, #room-controls h4 {
+    margin-bottom: 15px;
+    color: #495057; /* Colore testo coordinato */
+    font-size: 1.1em;
+    border-bottom: 1px solid #eee; /* Leggera linea sotto H4 */
+    padding-bottom: 8px;
+}
+
+#floorplan-image {
+    /* Larghezza: occupa tutto lo spazio disponibile nel suo contenitore flex */
+    width: 100%;
+
+    /* Altezza: FISSA un'altezza desiderata per tutte le piantine */
+    /* Scegli un valore che si adatti bene al tuo layout, es. 250px, 300px, etc. */
+    height: 280px; /* Esempio: Imposta un'altezza fissa */
+
+    /* Come l'immagine deve adattarsi alle dimensioni width/height definite: */
+    object-fit: contain; /* Opzione 1: Copre l'area, mantenendo le proporzioni. Può tagliare parti dell'immagine se le proporzioni non corrispondono. */
+    /* object-fit: contain; */ /* Opzione 2: Contiene l'intera immagine nell'area, mantenendo le proporzioni. Può lasciare spazi vuoti (letterboxing). */
+
+    /* Opzionale: Come allineare l'immagine all'interno del suo box se object-fit è 'contain' o 'cover' */
+    object-position: center; /* Centra l'immagine */
+
+    /* Stili precedenti mantenuti */
+    border: 1px solid #dee2e6; /* Bordo coordinato */
+    border-radius: 4px;
+    background-color: #f8f9fa; /* Sfondo placeholder coordinato */
+    display: block; /* Evita spazio extra sotto l'immagine */
+    min-height: 150px; /* Mantiene un'altezza minima se l'immagine non carica */
+}
+
+#device-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Leggermente meno spazio */
+}
+
+/* Stile Singolo Controllo Dispositivo Homepage */
+.device-control {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    background-color: #f8f9fa; /* Sfondo coordinato */
+    border: 1px solid #e9ecef; /* Bordo coordinato */
+    border-radius: 6px;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+.device-control:hover {
+    background-color: #ffffff; /* Bianco all'hover */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.07); /* Leggera ombra all'hover */
+}
+
+.device-info {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Più spazio icona/nome */
+}
+
+.device-icon {
+    width: 28px; /* Icona leggermente più grande */
+    height: 28px;
+    border-radius: 50%; /* Cerchio */
+    display: flex; /* Per centrare eventuale icona interna */
+    align-items: center;
+    justify-content: center;
+    font-size: 14px; /* Se usi font-icon */
+    color: white; /* Per testo su sfondo colorato */
+    flex-shrink: 0; /* Impedisce all'icona di restringersi */
+}
+/* Colori icone aggiornati */
+.device-icon.light-on { background-color: #ffc107; } /* Giallo */
+.device-icon.light-off { background-color: #6c757d; } /* Grigio */
+.device-icon.door-open { background-color: #28a745; } /* Verde */
+.device-icon.door-closed { background-color: #dc3545; } /* Rosso */
+.device-icon.sensor { background-color: #17a2b8; } /* Ciano */
+.device-icon.generic-device.generic-on { background-color: #007bff;} /* Blu generico ON */
+.device-icon.generic-device.generic-off { background-color: #adb5bd;} /* Grigio chiaro generico OFF */
+.device-icon.generic-device { background-color: #adb5bd;} /* Fallback */
+
+
+.device-name {
+    font-weight: 600; /* Testo leggermente più bold */
+    color: #343a40;
+}
+
+.device-status {
+    font-style: normal; /* Non corsivo */
+    color: #6c757d;
+    margin-left: 8px;
+    font-size: 0.85em;
+}
+
+.device-actions button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.85em; /* Leggermente più piccolo */
+    font-weight: bold;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    min-width: 75px;
+    text-align: center;
+}
+.device-actions button:active {
+    transform: scale(0.97);
+}
+
+/* Stili specifici per stato pulsanti */
+.button-on, .button-open {
+    background-color: #ffc107; /* Giallo */
+    color: #212529; /* Testo scuro per giallo */
+}
+.button-on:hover, .button-open:hover {
+    background-color: #e0a800; /* Giallo più scuro */
+}
+
+.button-off, .button-closed {
+    background-color: #6c757d; /* Grigio */
+    color: #fff;
+}
+.button-off:hover, .button-closed:hover {
+    background-color: #5a6268; /* Grigio più scuro */
+}
+
+/* Pulsante Chiudi Dettagli */
+#close-details {
+    display: block;
+    margin: 25px auto 0; /* Più spazio sopra */
+    padding: 10px 25px; /* Leggermente più largo */
+    background-color: #6c757d; /* Grigio */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-weight: bold;
+}
+#close-details:hover {
+    background-color: #5a6268; /* Grigio scuro */
+}
+
+
+/* ======================================== */
+/* Stili Specifici ABOUT US                 */
+/* ======================================== */
+
+.about-content .slogan {
+    font-size: 1.25em; /* Leggermente più grande */
+    font-style: italic;
+    color: #6c757d;
+    text-align: center;
+    margin-bottom: 30px; /* Più spazio sotto */
+    margin-top: 10px; /* Spazio sopra */
+}
+
+/* Separatore orizzontale */
+hr.separator {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0)); /* Leggermente meno scuro */
+    margin: 40px 0; /* Più spazio */
+}
+
+/* Lista "Cosa Offriamo" (usa disc) */
+.about-content ul {
+    list-style: disc; /* Applica pallini SOLO alle ul dentro .about-content */
+    margin-left: 25px;
+    margin-bottom: 1em;
+}
+.about-content ul li {
+    margin-bottom: 0.6em; /* Spazio tra elementi */
+    padding-left: 5px; /* Spazio tra pallino e testo */
+}
+
+/* Lista con Checkmark */
+.checkmark-list {
+    list-style: none; /* Rimuove pallini (sovrascrive .about-content ul se necessario) */
+    padding-left: 5px; /* Allinea con testo normale */
+    margin-left: 0; /* Resetta margine */
+}
+
+.checkmark-list li {
+    padding-left: 0; /* Resetta padding */
+    margin-bottom: 0.8em;
+    display: flex;
+    align-items: flex-start;
+}
+
+.checkmark-list .checkmark {
+    color: #28a745; /* Verde */
+    font-weight: bold;
+    margin-right: 12px; /* Più spazio */
+    line-height: 1.7; /* Allinea con testo */
+    flex-shrink: 0; /* Non far restringere il checkmark */
+}
+
+/* ======================================== */
+/* Stili Form di Contatto                   */
+/* ======================================== */
+#contact-section {
+     border-top: 3px solid #007bff; /* Bordo blu sopra */
+     margin-top: 40px; /* Spazio sopra sezione form */
+     padding-top: 30px; /* Padding sopra dentro la sezione */
+}
+
+#contact-section h3 {
+    text-align: center;
+    margin-top: 0; /* Rimuovi margine sopra H3 del form */
+}
+#contact-section p { /* Paragrafo introduttivo form */
+    text-align: center;
+    margin-bottom: 30px; /* Più spazio sotto intro */
+    color: #6c757d;
+    font-size: 1.1em; /* Leggermente più grande */
+}
+
+/* Form effettivo */
+#contact-form .form-group {
+    margin-bottom: 22px; /* Più spazio tra gruppi */
+}
+
+#contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600; /* Bold più standard */
+    color: #495057;
+    font-size: 0.95em; /* Leggermente più piccolo */
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="email"],
+#contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-family: inherit; /* Eredita font dal body */
+    color: #495057;
+    background-color: #fff;
+    transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+#contact-form input[type="text"]::placeholder,
+#contact-form input[type="email"]::placeholder,
+#contact-form textarea::placeholder {
+    color: #adb5bd; /* Colore placeholder */
+    opacity: 1; /* Necessario per Firefox */
+}
+
+
+#contact-form input[type="text"]:focus,
+#contact-form input[type="email"]:focus,
+#contact-form textarea:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+#contact-form textarea {
+    resize: vertical;
+    min-height: 120px; /* Leggermente più alto */
+}
+
+#contact-form .btn-submit {
+    display: block; /* Bottone a larghezza piena */
+    width: 100%;   /* Bottone a larghezza piena */
+    max-width: 300px; /* Ma con larghezza massima per estetica */
+    margin: 10px auto 0; /* Centrato */
+    background-color: #28a745; /* Verde per l'invio */
+    color: white;
+    padding: 14px 25px; /* Più padding verticale */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em; /* Più grande */
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+#contact-form .btn-submit:hover {
+    background-color: #218838; /* Verde più scuro */
+}
+#contact-form .btn-submit:active {
+     transform: scale(0.98);
+}
+
+/* Stile per feedback JS */
+#form-feedback {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+}
+#form-feedback.success { /* Classe per successo */
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+#form-feedback.error { /* Classe per errore */
+     color: #721c24;
+     background-color: #f8d7da;
+     border: 1px solid #f5c6cb;
+}
+
+.viewer-instructions {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #6c757d;
+    font-size: 0.95em;
+    background-color: #e9ecef; /* Sfondo leggero per distinguerlo */
+    padding: 8px 10px;
+    border-radius: 5px;
+    max-width: 80%; /* Non troppo largo */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.viewer-instructions .info-icon {
+    font-size: 1.1em;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+/* Stile Bottone Primario (riutilizzabile) */
+.btn-primary {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+.btn-primary:active {
+     transform: scale(0.98);
+}
+
+/* Overlay per il Modal */
+#modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Sfondo scuro semi-trasparente */
+    z-index: 1040; /* Sopra il contenuto ma sotto il modal */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s linear;
+    
+}
+#modal-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Stile base del Modal */
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%); /* Leggermente spostato in alto */
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.25);
+    z-index: 1050; /* Sopra l'overlay */
+    width: 90%;
+    max-width: 700px; /* Larghezza massima modal */
+    max-height: 85vh; /* Altezza massima, abilita scroll */
+    display: flex; /* Usa flex per layout interno */
+    flex-direction: column; /* Contenuto in colonna */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s linear;
+}
+.modal.visible {
+    opacity: 1;
+    transform: translate(-50%, -50%); /* Centra quando visibile */
+    visibility: visible;
+}
+
+/* Header del Modal */
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 25px;
+    border-bottom: 1px solid #e9ecef;
+    flex-shrink: 0; /* Impedisce all'header di restringersi */
+}
+.modal-header h2 {
+    margin: 0;
+    font-size: 1.5em;
+    color: #343a40;
+    border-bottom: none; /* Rimuovi bordo da h2 generico */
+    padding-bottom: 0;
+}
+
+/* Bottone Chiudi Modal */
+.close-modal-btn {
+    background: none;
+    border: none;
+    font-size: 2rem; /* Dimensione X */
+    font-weight: bold;
+    line-height: 1;
+    color: #6c757d;
+    cursor: pointer;
+    padding: 0 5px;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+.close-modal-btn:hover {
+    opacity: 1;
+}
+
+/* Contenuto del Modal */
+.modal-content {
+    padding: 20px 25px;
+    overflow-y: auto; /* Abilita scroll verticale se necessario */
+    flex-grow: 1; /* Fa espandere l'area contenuto */
+}
+
+/* Stile per i gruppi di stanze nel modal */
+.modal-content .room-group {
+    margin-bottom: 25px;
+    border-bottom: 1px dashed #eee; /* Separatore tra stanze */
+    padding-bottom: 15px;
+}
+.modal-content .room-group:last-child {
+    border-bottom: none; /* Nessun bordo per l'ultima stanza */
+    margin-bottom: 0;
+}
+
+.modal-content .room-group h4 {
+    font-size: 1.2em;
+    color: #0056b3;
+    margin-bottom: 15px;
+}
+
+.modal-content .device-control {
+     /* Riutilizza lo stile, ma magari con sfondo leggermente diverso */
+     background-color: #fff;
+     border: 1px solid #eee;
+     margin-bottom: 10px; /* Spazio tra dispositivi nello stesso gruppo */
+}
+.modal-content .device-control:hover {
+     background-color: #f8f9fa;
+     box-shadow: none; /* Rimuovi ombra hover nel modal */
+}
+
+/* Rendi le istruzioni leggermente diverse */
+.viewer-instructions {
+    text-align: center;
+    margin-bottom: 15px;
+    color: #6c757d;
+    font-size: 0.95em;
+    background-color: #e9ecef;
+    padding: 8px 10px;
+    border-radius: 5px;
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid #dee2e6;
+}
+.viewer-instructions .info-icon {
+    font-size: 1.1em;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+#canvas-container.room-hovered {
+    cursor: pointer; /* Indica che si può cliccare */
+}
+
+/* ======================================== */
+/* Responsive Design                      */
+/* ======================================== */
+@media (max-width: 768px) {
+    main {
+        padding: 0 15px; /* Meno padding laterale su mobile */
+    }
+
+    header nav ul {
+        flex-direction: column; /* Menu in colonna */
+        gap: 8px;
+    }
+
+    #room-content {
+        flex-direction: column; /* Controlli sotto piantina su mobile */
+        gap: 25px;
+    }
+
+    section {
+        padding: 20px; /* Meno padding sezioni su mobile */
+    }
+
+    section h2 {
+        font-size: 1.6em; /* Titoli più piccoli */
+    }
+    section h3 {
+         font-size: 1.3em;
+    }
+
+     #contact-form .btn-submit {
+        font-size: 1em; /* Testo bottone leggermente più piccolo */
+        padding: 12px 20px;
+    }
+}

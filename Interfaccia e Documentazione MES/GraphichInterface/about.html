@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Domotica - About Us</title>
+    <link rel="stylesheet" href="style3.css"> <!-- Link allo stesso CSS -->
+</head>
+<body>
+    <header>
+        <h1>Progetto Casa Domotica</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About Us</a></li> <!-- 'active' class qui -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sezione Contenuto Principale -->
+        <section class="about-content content-section">
+            <h2>MES Project: Connettività che unisce</h2>
+            <p class="slogan">Dal team alla rete: soluzioni che creano valore.</p>
+
+            <p>Il nome <strong>MES Project</strong> nasce dall’unione di Matteo, Eduard e Samuele, fondatori con una visione condivisa: trasformare le reti in strumenti di collaborazione, non solo connessione.</p>
+            <p>Il nostro motto – <em>"Si impara a convivere per collaborare"</em> – riflette la nostra filosofia: progettiamo infrastrutture che fanno dialogare persone, dispositivi e idee, con affidabilità e innovazione.</p>
+
+            <hr class="separator"> <!-- Separatore visuale -->
+
+            <h3>Cosa offriamo</h3>
+            <ul>
+                <li>Reti su misura per aziende e privati: cablate, wireless, ibride.</li>
+                <li>Monitoraggio proattivo 24/7 per prevenire criticità.</li>
+                <li>Consulenza dedicata, perché ogni esigenza richiede un approccio unico.</li>
+                <li>Formazione e supporto: insegnamo a "convivere" con la tecnologia, per sfruttarne al massimo il potenziale.</li>
+            </ul>
+
+            <hr class="separator">
+
+            <h3>Perché scegliere MES Project?</h3>
+            <p>Non gestiamo solo reti: creiamo ecosistemi connessi dove tecnologia e collaborazione si potenziano a vicenda.<br>
+            Con noi, la vostra rete sarà:</p>
+            <ul class="checkmark-list">
+                <li><span class="checkmark">✔</span> Sicura – protetta da minacce e interruzioni.</li>
+                <li><span class="checkmark">✔</span> Scalabile – pronta a crescere con voi.</li>
+                <li><span class="checkmark">✔</span> Semplice – perché la complessità non deve essere un ostacolo.</li>
+            </ul>
+        </section>
+
+        <!-- Sezione Form di Contatto -->
+        <section id="contact-section" class="content-section">
+            <hr class="separator">
+            <h3>Contattaci</h3>
+            <p>Hai domande o vuoi discutere un progetto? Scrivici!</p>
+
+            <form id="contact-form" action="#" method="post"> <!-- action="#" è un placeholder -->
+                <div class="form-group">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Messaggio:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn-submit">Invia Messaggio</button>
+                </div>
+            </form>
+            <div id="form-feedback" style="margin-top: 15px;"></div> <!-- Per eventuale feedback JS -->
+        </section>
+
+    </main>
+
+    <footer>
+        <p>© 2025 MES PROJECT. Progetto per Sistemi e Reti.</p>
+    </footer>
+
+    <!-- Script opzionale per gestire l'invio del form (solo feedback, non invio reale) -->
+    <script>
+        const contactForm = document.getElementById('contact-form');
+        const formFeedback = document.getElementById('form-feedback');
+
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(event) {
+                event.preventDefault(); // Impedisce l'invio reale del form
+
+                // Simula un invio e mostra un messaggio di successo
+                formFeedback.textContent = 'Grazie per il tuo messaggio! (Invio simulato)';
+                formFeedback.style.color = 'green';
+                formFeedback.style.fontWeight = 'bold';
+
+                // Optional: Pulisci il form dopo l'invio simulato
+                // contactForm.reset();
+
+                // Optional: Nascondi il messaggio dopo qualche secondo
+                setTimeout(() => {
+                    formFeedback.textContent = '';
+                }, 5000); // 5 secondi
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casa Domotica - Home</title>
+    <link rel="stylesheet" href="style3.css">
+</head>
+<body>
+    <header>
+        <h1>MES Casa Domotica</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <p class="viewer-instructions">
+            <span class="info-icon">ℹ️</span> Passa il mouse sulle stanze e clicca per vederne i dettagli, la piantina e controllare i dispositivi!
+        </p>
+         <!-- Bottone per aprire il modal -->
+         <div style="text-align: center; margin-bottom: 20px;">
+            <button id="show-all-devices-btn" class="btn-primary">Visualizza Tutti i Dispositivi</button>
+       </div>
+        <section id="viewer-section">
+            <h2>Visualizzazione 3D Casa</h2>
+            <div id="canvas-container">
+                <!-- Il canvas 3D verrà inserito qui da JavaScript -->
+                <div id="loading-indicator">Caricamento modello 3D...</div>
+            </div>
+        </section>
+
+        <section id="details-section">
+             <!-- Inizialmente nascosto, mostrato al click su una stanza -->
+            <div id="room-details" class="hidden">
+                <h3 id="room-name-title">Dettaglio Stanza</h3>
+                <div id="room-content">
+                    <div id="room-floorplan">
+                        <h4>Piantina</h4>
+                        <img id="floorplan-image" src="" alt="Piantina della stanza">
+                    </div>
+                    <div id="room-controls">
+                        <h4>Dispositivi Domotici</h4>
+                        <div id="device-list">
+                            <!-- I controlli verranno inseriti qui da JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                 <button id="close-details">Chiudi Dettagli</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 MES PROJECT. Progetto per Sistemi e Reti.</p>
+    </footer>
+
+    <div id="modal-overlay" class="hidden"></div>
+    <div id="all-devices-modal" class="modal hidden">
+        <div class="modal-header">
+            <h2>Tutti i Dispositivi della Casa</h2>
+            <button class="close-modal-btn" aria-label="Chiudi">×</button>
+        </div>
+        <div id="modal-device-list" class="modal-content">
+            <!-- Contenuto generato da JavaScript -->
+        </div>
+    </div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/three@0.124.0/build/three.js"></script>
+
+    <!-- 2. OrbitControls CORRISPONDENTE alla versione 0.124.0 dal CDN -->
+    <!--    Il percorso standard per le versioni non-modulo è examples/js/controls/ -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.124.0/examples/js/controls/OrbitControls.js"></script>
+
+    <!--<script src="https://cdn.jsdelivr.net/npm/three@0.124.0/examples/js/loaders/GLTFLoader.js"></script>-->
+
+    <!-- 3. Il tuo file di dati locale -->
+    <script src="js/data.js"></script>
+
+    <!-- 4. Il tuo file di logica principale locale -->
+    <script src="js/homepage.js"></script>
+</body>
+</html>
